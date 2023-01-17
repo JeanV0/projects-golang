@@ -8,7 +8,10 @@
 #### Tenha enfase no baseado  e inspirado, no começo ta bem parecido por causa de eu pegar codigo de quando fiz o curso, mas aos poucos vou modificar, comentar e recriar
 
 ### Fiber go é um projeto curto mas o que mais fiz por conta propria, baseado em uma biblioteca de seu respectivo nome. Poderia ter usado gin que tem comunidade e mais coisas para ter ideias de codigo mas que fazer algo baseado diferente
-obs: Eu baseio na estrutura do symfony do php, laravel, node js com express e java para orientação a objeto
+*obs: Eu baseio na estrutura do symfony do php, laravel, node js com express e java para orientação a objeto*
+
+![gopher para animar o dia](./images/gopher.png)
+
 ### Tirando as especificações dos projetos em si, tem as tecnologias gerais. Utilizei docker para build e sua maneira de fazer "deploy" unico de cada. Tendo seu docker-compose e formas de usar "migrations" personalizado para quando ligar a aplicacao já esteja pronta
 ##
 ## Observações
