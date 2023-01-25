@@ -14,12 +14,12 @@ func GetApp() {
 
 	App = fiber.New(fiber.Config{
 		// Nome da aplicação
-		AppName: "Golang pigz 0.1",
+		AppName: "Golang 0.1",
 		// No header do html em vez de nginx e tals
 		ServerHeader: "Pigz",
 		// Validação do ip se é verdadeiro ou não
 		EnableIPValidation: true,
-		// Pre bifurcação
+		// Pre bifurcação fazendo criar goroute para porta 8080 para maior disponibilidade
 		Prefork:     true,
 		JSONEncoder: json.Marshal,
 		JSONDecoder: json.Unmarshal,

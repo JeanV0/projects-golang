@@ -3,33 +3,35 @@ version: '3.3'
 services:
 
   golang:
+    pid: host
     build: .
+    volumes:
+      - .:/usr/src/app
     ports:
       - 8080:8080
       
-  postgres:
-    container_name: postgres_container
-    image: postgres
-    environment:
-      POSTGRES_USER: golang
-      POSTGRES_PASSWORD: golang
-    volumes:
-      - postgres:/data/postgres
-    ports:
-      - "5432:5432"
-    restart: unless-stopped
+  # postgres:
+  #   container_name: postgres_container
+  #   image: postgres
+  #   environment:
+  #     POSTGRES_USER: golang
+  #     POSTGRES_PASSWORD: golang
+  #   volumes:
+  #     - postgres:/data/postgres
+  #   ports:
+  #     - "5432:5432"
+  #   restart: unless-stopped
 
-  cache:
-    image: redis:6.2-alpine
-    restart: always
-    ports:
-      - '6379:6379'
-    command: redis-server
-    volumes: 
-      - cache:/data
-volumes:
-  cache:
-    driver: local
-  postgres:
-    driver: local
-  grafana-data:
+  # cache:
+  #   image: redis:6.2-alpine
+  #   restart: always
+  #   ports:
+  #     - '6379:6379'
+  #   command: redis-server
+  #   volumes: 
+  #     - cache:/data
+# volumes:
+#   cache:
+#     driver: local
+#   postgres:
+#     driver: local

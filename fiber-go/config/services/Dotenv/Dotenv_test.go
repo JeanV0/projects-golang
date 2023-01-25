@@ -15,7 +15,6 @@ var StructToTestDotEnv = EnvironmentApp{
 	Database_user:     "golang",
 	Database_DbName:   "pigz_hom",
 	Database_password: "golang",
-	Api_host:          "127.0.0.1",
 	Api_port:          "9000",
 	Jwt_Secret:        "Z2JmZGFzamtsdmRocmVhZmR1c3JpZ2J3ZWl3aHNld3FwamlvcGR2Ymd0aWV3dWdpcmdmdWhvZ291aXVhaXVnd3VnT1VFSE9HQUVST1VHSEVPw4dIQUVST0dIT0VSR0/Dh0VSR09JRUhHT0lIR0lISE9oZG9IT0hPRUhHSU9HSE8",
 	// Aparti de firebase parei de testar pois ja estava obvio que ja estava estabel a sua utilizaçãp
