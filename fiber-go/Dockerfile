@@ -1,43 +1,20 @@
-# Eu me baseio nesse link mas algumas coisas mudei para meus propositos https://chemidy.medium.com/create-the-smallest-and-secured-golang-docker-image-based-on-scratch-4752223b7324
+FROM golang:latest as build
 
-ARG arch=AMD64
+WORKDIR /app
 
-FROM golang:1.19-alpine as builder
+COPY go.mod go.sum ./
 
-ENV USER=appuser
-ENV UID=10001
+RUN go mod download
 
-RUN adduser \    
-    --disabled-password \    
-    --gecos "" \    
-    --no-create-home \    
-    --uid "${UID}" \    
-    "${USER}"
+COPY . .
 
-RUN chown userapp:userapp -R "/home/${USER}/"
+RUN go build -ldflags="-s -w" -o main .
 
-WORKDIR /srv/app
+FROM scratch
 
-USER appuser:appuser
+WORKDIR /app/
 
-COPY ./ ./
+COPY --from=build /app/main ./main
+COPY --from=build /app/.env.local /.env.local
 
-RUN go install
-
-RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o /srv/app/app
-
-FROM scratch as runner
-
-COPY --from=builder /etc/passwd /etc/passwd
-COPY --from=builder /etc/group /etc/group
-
-WORKDIR /srv/app
-
-COPY --from=builder /srv/app/.env.local /srv/app/.env.local
-COPY --from=builder /srv/app/app /srv/app/app
-
-USER appuser:appuser
-
-EXPOSE 8080
-
-CMD ["/srv/app/app"]
+CMD ["./main"]

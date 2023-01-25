@@ -17,7 +17,7 @@ func main() {
 	src.GetApp()
 
 	// Inicializando servidor
-	URI_API := fmt.Sprintf("%s:%s", dotenv.MyEnvironmentApp.Api_host, dotenv.MyEnvironmentApp.Api_port)
+	URI_API := fmt.Sprintf(":%s", dotenv.MyEnvironmentApp.Api_port)
 	log.Fatal(src.App.Listen(URI_API))
 
 }

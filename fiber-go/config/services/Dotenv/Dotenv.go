@@ -19,7 +19,6 @@ type EnvironmentApp struct {
 	Database_password string
 	Database_DbName   string
 
-	Api_host string
 	Api_port string
 
 	Jwt_Secret string
@@ -62,7 +61,6 @@ func LoadEnv() {
 	MyEnvironmentApp.Database_DbName = os.Getenv("DATABASE_DB")
 
 	// Variaveis para configurar API
-	MyEnvironmentApp.Api_host = os.Getenv("API_HOST")
 	MyEnvironmentApp.Api_port = os.Getenv("API_PORT")
 
 	// Configurações para jwt
