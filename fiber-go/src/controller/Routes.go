@@ -18,6 +18,4 @@ func configMiddlewareSecurity(app *fiber.App) {
 func ConfigRoutesApp(app *fiber.App) {
 	// app.Add(http.MethodGet, "/hello", Hello)
 	configMiddlewareSecurity(app)
-
-	// metrics.GetPrometheusFiber(app) Uma futura ideia
 }
